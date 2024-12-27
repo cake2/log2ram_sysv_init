@@ -141,20 +141,20 @@ PATH_DISK="/var/log"
 ZL2R=false
 ```
 apt install rsync util-linux
-
+```
 cd /data/log2ram_system
 mkdir -p /usr/local/bin/
 cp log2ram /usr/local/bin/log2ram
 cp log2ram.conf /etc/log2ram.conf
 cp log2ram-init.sh /etc/init.d/log2ram-init.sh
-
+```
 we create daily cron for syncing
-
+```
 cp log2ram-cron.sh /etc/cron.daily/log2ram-cron.sh
 [ -d /etc/logrotate.d ] && cp /data/log2ram_system/log2ram.logrotate /etc/logrotate.d/log2ram
 
 update-rc.d log2ram-init.sh start 06 S . stop 80 0 6 .
-
+```
 Checking correct symlinks are installed:
 ```
 ls -alh /etc/rcS.d/    # symlink should be present
