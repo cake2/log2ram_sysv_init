@@ -150,7 +150,8 @@ cp log2ram-init.sh /etc/init.d/log2ram-init.sh
 ```
 we create daily cron for syncing
 ```
-cp log2ram-cron.sh /etc/cron.daily/log2ram-cron.sh
+###remove periods and dashes for filenames inside /etc/cron.daily/
+cp log2ram-cron.sh /etc/cron.daily/log2ram
 [ -d /etc/logrotate.d ] && cp /data/log2ram_system/log2ram.logrotate /etc/logrotate.d/log2ram
 
 update-rc.d log2ram-init.sh start 06 S . stop 80 0 6 .
